@@ -185,6 +185,7 @@ if __name__ == '__main__':
 
     # if running on GPU and we want to use cuda move model there
     use_cuda = torch.cuda.is_available()
+    # use_cuda = False # yuanchen: dont use cuda for now
 
     # add code for datasets
 
@@ -272,14 +273,14 @@ if __name__ == '__main__':
     # save the py script of models
     script_dir = os.path.join(opt.log_dir, 'script_cache')
     ensure_dir(script_dir)
-    shutil.copy('../../nn_module/__init__.py', script_dir)
-    shutil.copy('../../nn_module/attention_module.py', script_dir)
-    shutil.copy('../../nn_module/cnn_module.py', script_dir)
-    shutil.copy('../../nn_module/encoder_module.py', script_dir)
-    shutil.copy('../../nn_module/decoder_module.py', script_dir)
-    shutil.copy('../../nn_module/fourier_neural_operator.py', script_dir)
-    shutil.copy('../../nn_module/gnn_module.py', script_dir)
-    shutil.copy('../../train_darcy.py', opt.log_dir)
+    shutil.copy('../uniform_grids/nn_module/__init__.py', script_dir)
+    shutil.copy('../uniform_grids/nn_module/attention_module.py', script_dir)
+    shutil.copy('../uniform_grids/nn_module/cnn_module.py', script_dir)
+    shutil.copy('../uniform_grids/nn_module/encoder_module.py', script_dir)
+    shutil.copy('../uniform_grids/nn_module/decoder_module.py', script_dir)
+    # shutil.copy('../uniform_grids/nn_module/fourier_neural_operator.py', script_dir)
+    # shutil.copy('../uniform_grids/nn_module/gnn_module.py', script_dir)
+    # shutil.copy('../uniform_grids/train_darcy.py', opt.log_dir)
 
     # create optimizers
     enc_optim = torch.optim.Adam(list(encoder.parameters()), lr=opt.lr, weight_decay=1e-4)
