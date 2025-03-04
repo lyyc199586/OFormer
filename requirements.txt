@@ -1,0 +1,11 @@
+einops==0.3.2
+fourier_neural_operator==0.17
+matplotlib==3.8.4
+numba
+numpy==1.23.5
+scikit_learn
+scipy
+tensorboardX
+torch==1.8.1
+torchvision
+tqdm
